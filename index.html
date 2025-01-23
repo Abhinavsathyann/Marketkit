@@ -1,0 +1,400 @@
+<html>
+ <head>
+  <title>
+   Marketkit
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <script>
+   function searchItems() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const items = document.getElementsByClassName('item');
+    for (let i = 0; i < items.length; i++) {
+     const itemName = items[i].getElementsByClassName('item-name')[0].innerText.toLowerCase();
+     if (itemName.includes(input)) {
+      items[i].style.display = '';
+     } else {
+      items[i].style.display = 'none';
+     }
+    }
+   }
+
+   function buyItem(itemName, itemPrice) {
+    document.getElementById('paymentDetails').style.display = 'block';
+    document.getElementById('itemName').innerText = itemName;
+    document.getElementById('itemPrice').innerText = itemPrice;
+   }
+
+   function closePaymentDetails() {
+    document.getElementById('paymentDetails').style.display = 'none';
+   }
+  </script>
+ </head>
+ <body class="font-roboto">
+  <header class="bg-blue-600 text-white">
+   <div class="container mx-auto flex justify-between items-center py-2">
+    <div class="flex items-center space-x-4">
+     <button class="text-white">
+      <i class="fas fa-bars">
+      </i>
+      Categories
+     </button>
+     <nav class="space-x-4">
+      <a class="hover:underline" href="#">
+       Home
+      </a>
+      <a class="hover:underline" href="#">
+       Shop
+      </a>
+      <a class="hover:underline" href="#">
+       Pages
+      </a>
+      <a class="hover:underline" href="#">
+       Blogs
+      </a>
+     </nav>
+    </div>
+    <div class="flex items-center space-x-4">
+     <a class="hover:underline" href="#">
+      Sell on Marketkit
+     </a>
+     <a class="hover:underline" href="#">
+      Track your order
+     </a>
+     <div class="relative">
+      <select class="bg-blue-600 text-white border-none">
+       <option>
+        Indian Rupee
+       </option>
+      </select>
+     </div>
+     <div class="relative">
+      <select class="bg-blue-600 text-white border-none">
+       <option>
+        English
+       </option>
+      </select>
+     </div>
+     <a class="hover:underline" href="#">
+      Login/Register
+     </a>
+    </div>
+   </div>
+  </header>
+  <div class="bg-blue-500 py-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <div class="text-white text-2xl font-bold">
+     Marketkit
+    </div>
+    <div class="relative w-1/2">
+     <input class="w-full py-2 px-4 rounded" id="searchInput" onkeyup="searchItems()" placeholder="Search for items..." type="text"/>
+     <button class="absolute right-0 top-0 mt-2 mr-2 text-blue-500" onclick="searchItems()">
+      <i class="fas fa-search">
+      </i>
+     </button>
+    </div>
+    <div class="flex items-center space-x-4">
+     <a class="text-white" href="#">
+      <i class="fas fa-heart">
+      </i>
+     </a>
+     <a class="text-white" href="#">
+      <i class="fas fa-shopping-cart">
+      </i>
+     </a>
+     <a class="text-white" href="#">
+      <i class="fas fa-user">
+      </i>
+     </a>
+    </div>
+   </div>
+  </div>
+  <div class="container mx-auto mt-4">
+   <div class="relative">
+    <img alt="Banner image with a person using VR headset" class="w-full rounded" height="400" src="https://storage.googleapis.com/a1aa/image/BrSxfaefyIPvOo2zAKF87BHGb2fG4zIDJzNmCnErFUNOLAUOB.jpg" width="1200"/>
+    <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-black bg-opacity-50 p-8">
+     <div class="text-white text-4xl font-bold">
+      VERSION 2018
+     </div>
+     <div class="text-white text-6xl font-bold">
+      30% discount
+     </div>
+     <div class="text-white text-xl text-center">
+      New version 2018 with many powerful features. Faster, Friction better &amp; Cheap Price
+     </div>
+     <button class="mt-4 bg-orange-500 text-white py-2 px-4 rounded">
+      Shop Now
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="container mx-auto mt-8">
+   <div class="flex justify-between items-center">
+    <div class="text-2xl font-bold">
+     Today Deals
+    </div>
+    <a class="text-blue-500 hover:underline" href="#">
+     View all
+    </a>
+   </div>
+   <div class="grid grid-cols-6 gap-4 mt-4">
+    <div class="text-center item border p-4">
+     <img alt="Plasma TV set" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/8AGnJIDf2mzcbym7AzOfN9N5loomnSw7a55XDOtNIEy9CAlTA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Plasma TV set
+     </div>
+     <div class="text-red-500">
+      ₹42,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹45,000
+     </div>
+     <div class="text-green-500">
+      10% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Plasma TV set', '₹42,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="iPhone" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/M8fJ89lSHYT0FSEON4oyF9ts2Oy3cWAkuNowAV1le9q0CAlTA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      iPhone
+     </div>
+     <div class="text-red-500">
+      ₹75,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹90,000
+     </div>
+     <div class="text-green-500">
+      15% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('iPhone', '₹75,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Appliances" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/G1gwGVDYCuZfBqXMMb3CEzifqORNqmjf3eErznvYkHvWMAUOB.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Appliances
+     </div>
+     <div class="text-red-500">
+      ₹3,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹3,500
+     </div>
+     <div class="text-green-500">
+      14% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Appliances', '₹3,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Photo &amp; Video" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/wTNKufF4dXQ3TavG9TJlhV4l6KYZRIKASnSnicmui8rgBgyJA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Photo &amp; Video
+     </div>
+     <div class="text-red-500">
+      ₹24,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹30,000
+     </div>
+     <div class="text-green-500">
+      20% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Photo & Video', '₹24,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Gaming consoles" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/0TwnaOCLeFTNQy151yhp6DImFeF5gOqeTT47seZ8fnpfuAQ5E.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Gaming consoles
+     </div>
+     <div class="text-red-500">
+      ₹6,500
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹7,500
+     </div>
+     <div class="text-green-500">
+      13% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Gaming consoles', '₹6,500')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Air conditioning" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/I813cFvxCg4xDJopemAy16vCsCsdTvvW42HDLOYFZ5eGDAlTA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Air conditioning
+     </div>
+     <div class="text-red-500">
+      ₹7,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹8,500
+     </div>
+     <div class="text-green-500">
+      18% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Air conditioning', '₹7,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Audio" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/b2l3p8uz4KqLFhNbnF09NUrZyx25hffMxaJMblxdC6fwFAKnA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Audio
+     </div>
+     <div class="text-red-500">
+      ₹3,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹3,500
+     </div>
+     <div class="text-green-500">
+      14% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Audio', '₹3,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Laptop" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/OFrj5llo3Q5DLNtsdf4ZLl1etPXB3QsOPRfpaSZ3PlOoPAKnA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Laptop
+     </div>
+     <div class="text-red-500">
+      ₹60,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹70,000
+     </div>
+     <div class="text-green-500">
+      14% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Laptop', '₹60,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Smartwatch" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/iygHSSq8zFrZGpttxCXoqsboAyXygTgnZtbOcfEcKer1HAlTA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Smartwatch
+     </div>
+     <div class="text-red-500">
+      ₹15,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹18,000
+     </div>
+     <div class="text-green-500">
+      17% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Smartwatch', '₹15,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Headphones" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/qRUKYSDZC9YDE1PJi9evvTMrfa7QozAG3uUzURkVXfdvPAKnA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Headphones
+     </div>
+     <div class="text-red-500">
+      ₹4,500
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹5,000
+     </div>
+     <div class="text-green-500">
+      10% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Headphones', '₹4,500')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Tablet" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/LhdWgMdqIiJQBRRQLecJqwuOVm9pQkdfnJ2NSQ9Vwin6HAlTA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Tablet
+     </div>
+     <div class="text-red-500">
+      ₹22,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹25,000
+     </div>
+     <div class="text-green-500">
+      12% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Tablet', '₹22,000')">
+      Buy
+     </button>
+    </div>
+    <div class="text-center item border p-4">
+     <img alt="Smart TV" class="mx-auto" height="150" src="https://storage.googleapis.com/a1aa/image/QBHBxIVzxf3LXq5aZdKONiVd36qxWGzeB008i8oZicUAIAlTA.jpg" width="150"/>
+     <div class="text-lg font-bold item-name">
+      Smart TV
+     </div>
+     <div class="text-red-500">
+      ₹75,000
+     </div>
+     <div class="text-gray-500 line-through">
+      ₹90,000
+     </div>
+     <div class="text-green-500">
+      17% off
+     </div>
+     <button class="mt-2 bg-blue-500 text-white py-1 px-3 rounded" onclick="buyItem('Smart TV', '₹75,000')">
+      Buy
+     </button>
+    </div>
+   </div>
+  </div>
+  <div id="paymentDetails" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" style="display: none;">
+   <div class="bg-white p-8 rounded shadow-lg w-1/3">
+    <div class="flex justify-between items-center mb-4">
+     <h2 class="text-2xl font-bold">
+      Payment Details
+     </h2>
+     <button class="text-red-500" onclick="closePaymentDetails()">
+      <i class="fas fa-times">
+      </i>
+     </button>
+    </div>
+    <div class="mb-4">
+     <div class="font-bold">
+      Item:
+     </div>
+     <div id="itemName">
+     </div>
+    </div>
+    <div class="mb-4">
+     <div class="font-bold">
+      Price:
+     </div>
+     <div id="itemPrice">
+     </div>
+    </div>
+    <div class="mb-4">
+     <div class="font-bold">
+      Card Holder Name:
+     </div>
+     <input class="w-full p-2 border rounded" type="text" placeholder="Card Holder Name"/>
+    </div>
+    <div class="mb-4">
+     <div class="font-bold">
+      Card Number:
+     </div>
+     <input class="w-full p-2 border rounded" type="text" placeholder="Card Number"/>
+    </div>
+    <div class="mb-4">
+     <div class="font-bold">
+      Expiry Date
