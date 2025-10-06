@@ -27,3 +27,4 @@ This project uses the following external resources:
 - [Google Fonts - Roboto](https://fonts.google.com/specimen/Roboto) - for fonts. CDN link used: `https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap`
 
 These resources are linked directly from trusted CDNs to enhance loading speed and reliability.
+
